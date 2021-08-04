@@ -53,8 +53,8 @@ export default function DatePicker({
         }
       }
       const startEnd: Date[] = [startDate, endDate];
-      sessionStorage.setItem("allDateList", JSON.stringify(dateRange));
       sessionStorage.setItem("startEnd", JSON.stringify(startEnd));
+      sessionStorage.setItem("allDateList", JSON.stringify(dateRange));
       dateRef.current?.addEventListener("change", onChangeSelection);
     });
   }, [onChangeSelection]);

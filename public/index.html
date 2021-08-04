@@ -67,8 +67,8 @@
       element.dispatchEvent(event);
     };
     const genDate = () => {
-      if (JSON.parse(window.sessionStorage.getItem("startEnd"))[0] !== null && JSON.parse(window.sessionStorage
-          .getItem("allDateList"))[0] !== null) {
+      if (JSON.parse(window.sessionStorage.getItem("startEnd")) !== null && JSON.parse(window.sessionStorage
+          .getItem("allDateList")) !== null) {
         const dateElement = document.querySelector("input[name='datePicker']");
         const startEnd = JSON.parse(window.sessionStorage.getItem("startEnd"));
         const allDateList = JSON.parse(window.sessionStorage.getItem("allDateList"));
