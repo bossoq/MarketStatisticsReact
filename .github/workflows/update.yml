@@ -29,9 +29,3 @@ jobs:
           REACT_APP_SUPABASEURL: ${{ secrets.SUPABASEURL }}
           REACT_APP_SUPABASEAPI: ${{ secrets.SUPABASEAPI }}
         run: "${GITHUB_WORKSPACE}/cronupdate/updatedata-linux-x86"
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
