@@ -102,7 +102,7 @@ To get a local copy up and running follow these simple steps.
    git clone https://github.com/bossoq/MarketStatisticsReact.git
    ```
 
-2. Create Supapbase DB with 3 tables (please see [dbtypes.ts](https://github.com/bossoq/MarketStatisticsReact/blob/main/interfaces/dbtypes.ts) for additional info)
+2. Create Supapbase DB with 3 tables (please see [dbtypes.ts](https://github.com/bossoq/MarketStatisticsReact/blob/main/src/lib/dbtypes.ts) for additional info)
 
    ```sh
    Bond_Yield
@@ -166,6 +166,7 @@ Project Link: [https://github.com/bossoq/MarketStatisticsReact](https://github.c
 * [Supabase](https://supabase.io)
 * [Font Awesome](https://fontawesome.com)
 * [SET](https://www.set.or.th)
+* [ThaiBMA](http://www.thaibma.or.th)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

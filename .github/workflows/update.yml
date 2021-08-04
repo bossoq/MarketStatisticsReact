@@ -4,9 +4,9 @@ name: Update Market Return
 
 # Controls when the workflow will run
 on:
-  # Run every day on 4 am
+  # Run every day on 2 am UTC
   schedule:
-    - cron: "0 4 * * *"
+    - cron: "0 2 * * *"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
