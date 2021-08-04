@@ -198,7 +198,7 @@ export const allReturnsDefault = async (
   const allReturnObj: [] = Object.assign(data || []);
   const ret: { [k: string]: number }[] = [];
   for (const interval of defaultInterval) {
-    console.log(`start loop test ${interval}`);
+    // console.log(`start loop test ${interval}`);
     const querySend = Object.assign(queryPrep, { interval: interval });
     let mktReturns = await averageMktReturns(
       querySend,

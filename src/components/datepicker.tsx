@@ -17,9 +17,17 @@ export default function DatePicker({
   date: Date;
   setDate: Dispatch<SetStateAction<Date>>;
 }): JSX.Element {
-  const [allDateList, setAllDateList] = useState<Date[]>([]);
   const typeRef = useRef<HTMLSelectElement>(null);
   const dateRef = useRef<HTMLInputElement>(null);
+  const onChangeSelection = () => {
+    if (type !== typeRef.current?.value) {
+      setType(typeRef.current?.value.toLowerCase() || "yearly")
+    }
+    if (date !== new Date(dateRef.current?.value || "")) {
+      setDate(new Date(dateRef.current?.value || ""))
+    }
+    setIsPulling(true);
+  };
   useEffect(() => {
     allBondDate().then((allDate: string[]) => {
       const startDate: Date = new Date(allDate.slice(0, 1)[0]);
@@ -44,22 +52,12 @@ export default function DatePicker({
           dateRange.push(thisDay);
         }
       }
-      setAllDateList(dateRange);
       const startEnd: Date[] = [startDate, endDate];
       sessionStorage.setItem("allDateList", JSON.stringify(dateRange));
       sessionStorage.setItem("startEnd", JSON.stringify(startEnd));
       dateRef.current?.addEventListener("change", onChangeSelection);
     });
   }, []);
-  const onChangeSelection = () => {
-    if (type !== typeRef.current?.value) {
-      setType(typeRef.current?.value.toLowerCase() || "yearly")
-    }
-    if (date !== new Date(dateRef.current?.value || "")) {
-      setDate(new Date(dateRef.current?.value || ""))
-    }
-    setIsPulling(true);
-  };
   return (
     <div className="columns is-desktop is-centered is-vcentered">
       <div className="column is-one-third">
