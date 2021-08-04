@@ -25,3 +25,5 @@ yarn-error.log*
 .eslintrc.js
 tsconfig.json
 envactivate
+
+.vercel
