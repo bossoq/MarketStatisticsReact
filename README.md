@@ -34,7 +34,7 @@
     <a href="https://github.com/bossoq/MarketStatisticsReact"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://setmarketstatistics.herokuapp.com">View Demo</a>
+    <a href="https://market-statistics.vercel.app">View Demo</a>
     ·
     <a href="https://github.com/bossoq/MarketStatisticsReact/issues">Report Bug</a>
     ·
@@ -117,9 +117,10 @@ To get a local copy up and running follow these simple steps.
    export REACT_APP_SUPABASEAPI={your supabase api key}
    ```
 
-4. To start server run
+4. To install dependencies & start server run
 
    ```sh
+   npm install
    npm start
    ```
 
@@ -127,6 +128,7 @@ To get a local copy up and running follow these simple steps.
 
    ```sh
    # build static site
+   npm install
    npm run build
    # serve with serve
    npm install -g serve
