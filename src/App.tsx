@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import DatePicker from "./components/datepicker";
+import MainTable from "./components/table";
+import Footer from "./components/footer";
 
-function App() {
+export default function App(): JSX.Element {
+  const [isPulling, setIsPulling] = useState<boolean>(false);
+  const [type, setType] = useState<string>("yearly");
+  const [date, setDate] = useState<Date>(new Date());
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div className="container is-fullhd">
+        <header className="mt-3 mb-6">
+          <h1 className="title is-size-1 has-text-centered">
+            SET Market Return
+          </h1>
+        </header>
+        <DatePicker isPulling={isPulling} setIsPulling={setIsPulling} type={type} setType={setType} date={date} setDate={setDate} />
+        <MainTable isPulling={isPulling} setIsPulling={setIsPulling} type={type} setType={setType} date={date} setDate={setDate} />
+      </div>
+      <Footer />
+    </main>
   );
 }
-
-export default App;

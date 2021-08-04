@@ -1,46 +1,184 @@
-# Getting Started with Create React App
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-## Available Scripts
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/bossoq/MarketStatisticsReact">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-In the project directory, you can run:
+  <h3 align="center">Stock Market Statistics</h3>
 
-### `npm start`
+  <p align="center">
+    A Project to calculate Stock Market Return from Source
+    <br />
+    <a href="https://github.com/bossoq/MarketStatisticsReact"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://setmarketstatistics.herokuapp.com">View Demo</a>
+    ·
+    <a href="https://github.com/bossoq/MarketStatisticsReact/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/bossoq/MarketStatisticsReact/issues">Request Feature</a>
+  </p>
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation & Run</a></li>
+      </ul>
+    </li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-### `npm test`
+[![Product Name Screen Shot][product-screenshot]](https://setmarketstatistics.herokuapp.com)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is a hobby project inspired by my jobs (as a financial advisor). Previously, I need to calculate all these values by using Spreadsheets. Now, with this project, I can use theses values for my jobs without any further work!
 
-### `npm run build`
+### Built With
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project use the follow frameworks:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* [Bulma](https://bulma.dev)
+* [Oak](https://oakserver.github.io/oak/)
+* [Supabase](https://supabase.io)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- GETTING STARTED -->
+## Getting Started
 
-### `npm run eject`
+To get a local copy up and running follow these simple steps.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Prerequisites
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Deno
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  ```sh
+  curl -fsSL https://deno.land/x/install/install.sh | sh
+  ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Installation
 
-## Learn More
+1. Clone the repo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```sh
+   git clone https://github.com/bossoq/MarketStatisticsReact.git
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Create Supapbase DB with 3 tables (please see [dbtypes.ts](https://github.com/bossoq/MarketStatisticsReact/blob/main/interfaces/dbtypes.ts) for additional info)
+
+   ```sh
+   Bond_Yield
+   SET_Info
+   SET_Return
+   ```
+
+3. Prepare Supabase API Key from [Supabase](https://supabase.io)
+
+   ```sh
+   export SUPABASEURL={your supabase url}
+   export SUPABASEAPI={your supabase api key}
+   ```
+
+4. Run Deno
+
+   ```sh
+   deno run --location http://localhost --allow-net --allow-read --allow-env --cached-only index.ts
+   ```
+
+5. Or Deploy on Heroku with provided Procfile
+
+   ```sh
+   # Using Chibat Heroku Buildpack
+   heroku create --buildpack https://github.com/chibat/heroku-buildpack-deno.git
+   # Setup remote variable / if deploy for local, please use .env file instead
+   heroku config:set SUPABASEURL={your supabase url}
+   heroku config:set SUPABASEAPI={your supabase api key}
+   # Push code to heroku
+   git push heroku main
+   # Start heroku dyno / or `heroku local web` to start locally
+   heroku open
+   ```
+
+<!-- ROADMAP -->
+## Roadmap
+
+See the [open issues](https://github.com/bossoq/MarketStatisticsReact/issues) for a list of proposed features (and known issues).
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the Market Statistics, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- CONTACT -->
+## Contact
+
+K. Wajakajornrit - [@Bosskun_](https://twitter.com/Bosskun_) - kittipos@picturo.us
+
+Project Link: [https://github.com/bossoq/MarketStatisticsReact](https://github.com/bossoq/MarketStatisticsReact)
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+
+* [Deno](https://deno.land)
+* [Bulma](https://bulma.dev)
+* [Oak](https://oakserver.github.io/oak/)
+* [Supabase](https://supabase.io)
+* [Font Awesome](https://fontawesome.com)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/bossoq/MarketStatisticsReact.svg?style=for-the-badge
+[contributors-url]: https://github.com/bossoq/MarketStatisticsReact/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/bossoq/MarketStatisticsReact.svg?style=for-the-badge
+[forks-url]: https://github.com/bossoq/MarketStatisticsReact/network/members
+[stars-shield]: https://img.shields.io/github/stars/bossoq/MarketStatisticsReact.svg?style=for-the-badge
+[stars-url]: https://github.com/bossoq/MarketStatisticsReact/stargazers
+[issues-shield]: https://img.shields.io/github/issues/bossoq/MarketStatisticsReact.svg?style=for-the-badge
+[issues-url]: https://github.com/bossoq/MarketStatisticsReact/issues
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/kittiposw
+[product-screenshot]: images/screenshot.jpg
