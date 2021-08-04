@@ -78,7 +78,7 @@ This is a hobby project inspired by my jobs (as a financial advisor). Previously
 This project use the follow frameworks:
 
 * [Bulma](https://bulma.dev)
-* [Oak](https://oakserver.github.io/oak/)
+* [React](https://reactjs.org/)
 * [Supabase](https://supabase.io)
 
 <!-- GETTING STARTED -->
@@ -88,10 +88,10 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* Deno
+* Node
 
   ```sh
-  curl -fsSL https://deno.land/x/install/install.sh | sh
+  brew install node
   ```
 
 ### Installation
@@ -113,28 +113,24 @@ To get a local copy up and running follow these simple steps.
 3. Prepare Supabase API Key from [Supabase](https://supabase.io)
 
    ```sh
-   export SUPABASEURL={your supabase url}
-   export SUPABASEAPI={your supabase api key}
+   export REACT_APP_SUPABASEURL={your supabase url}
+   export REACT_APP_SUPABASEAPI={your supabase api key}
    ```
 
-4. Run Deno
+4. To start server run
 
    ```sh
-   deno run --location http://localhost --allow-net --allow-read --allow-env --cached-only index.ts
+   npm start
    ```
 
-5. Or Deploy on Heroku with provided Procfile
+5. Or to build npm static
 
    ```sh
-   # Using Chibat Heroku Buildpack
-   heroku create --buildpack https://github.com/chibat/heroku-buildpack-deno.git
-   # Setup remote variable / if deploy for local, please use .env file instead
-   heroku config:set SUPABASEURL={your supabase url}
-   heroku config:set SUPABASEAPI={your supabase api key}
-   # Push code to heroku
-   git push heroku main
-   # Start heroku dyno / or `heroku local web` to start locally
-   heroku open
+   # build static site
+   npm run build
+   # serve with serve
+   npm install -g serve
+   serve -s build
    ```
 
 <!-- ROADMAP -->
@@ -163,11 +159,11 @@ Project Link: [https://github.com/bossoq/MarketStatisticsReact](https://github.c
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* [Deno](https://deno.land)
+* [React](https://reactjs.org)
 * [Bulma](https://bulma.dev)
-* [Oak](https://oakserver.github.io/oak/)
 * [Supabase](https://supabase.io)
 * [Font Awesome](https://fontawesome.com)
+* [SET](https://www.set.or.th)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
