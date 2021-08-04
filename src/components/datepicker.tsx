@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import { useState, useEffect, useRef, SetStateAction, Dispatch } from "react";
+import { useCallback, useEffect, useRef, SetStateAction, Dispatch } from "react";
 import { allBondDate } from "../lib/calcreturn";
 
 export default function DatePicker({
@@ -19,7 +19,7 @@ export default function DatePicker({
 }): JSX.Element {
   const typeRef = useRef<HTMLSelectElement>(null);
   const dateRef = useRef<HTMLInputElement>(null);
-  const onChangeSelection = () => {
+  const onChangeSelection = useCallback(() => {
     if (type !== typeRef.current?.value) {
       setType(typeRef.current?.value.toLowerCase() || "yearly")
     }
@@ -27,7 +27,7 @@ export default function DatePicker({
       setDate(new Date(dateRef.current?.value || ""))
     }
     setIsPulling(true);
-  };
+  }, []);
   useEffect(() => {
     allBondDate().then((allDate: string[]) => {
       const startDate: Date = new Date(allDate.slice(0, 1)[0]);
@@ -57,7 +57,7 @@ export default function DatePicker({
       sessionStorage.setItem("startEnd", JSON.stringify(startEnd));
       dateRef.current?.addEventListener("change", onChangeSelection);
     });
-  }, []);
+  }, [onChangeSelection]);
   return (
     <div className="columns is-desktop is-centered is-vcentered">
       <div className="column is-one-third">
