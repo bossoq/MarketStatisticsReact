@@ -42,6 +42,7 @@ export default function MainTable({
       }).then((data: { [k: string]: any }) => {
         setTableData(data.return);
         setMonthYear(data.monthYear);
+        setDate(new Date(dateString));
         setIsFirstLoad(false);
       });
     });

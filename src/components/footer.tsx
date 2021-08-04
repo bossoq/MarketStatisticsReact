@@ -11,7 +11,7 @@ export default function Footer(): JSX.Element {
           <span className="icon-text">
             <h4 className="has-text-weight-bold">Contribute with us on</h4>
             <a
-              href="https://github.com/bossoq/marketstatisticsaleph"
+              href="https://github.com/bossoq/MarketStatisticsReact"
               target="_blank"
               rel="noreferrer"
             >
