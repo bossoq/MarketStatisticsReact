@@ -48,16 +48,16 @@ export default function MainTable({
     });
   }, []);
   return (
-    <div className="columns is-desktop is-multiline is-centered is-vcentered">
+    <div className="is-flex if-flex-wrap-wrap is-flex-direction-row is-justify-content-center">
       <div
         className="loader-wrapper"
-        style={{ position: "relative", width: "80%" }}
+        style={{ flexBasis: "90%" }}
       >
-        <div className="column">
+        <div>
           {isPulling && (
             <div
               className="is-overlay"
-              style={{ backgroundColor: "rgba(255,255,255,0.8)" }}
+              style={{ backgroundColor: "rgba(255,255,255,0.8)", width: "90%", margin: "auto" }}
             >
               <div style={{ position: "absolute", top: "40%", width: "100%" }}>
                 <h3 className="is-size-2 has-text-weight-bold has-text-centered">

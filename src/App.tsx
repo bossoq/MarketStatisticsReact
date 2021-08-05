@@ -15,8 +15,24 @@ export default function App(): JSX.Element {
             SET Market Return
           </h1>
         </header>
-        <DatePicker isPulling={isPulling} setIsPulling={setIsPulling} type={type} setType={setType} date={date} setDate={setDate} />
-        <MainTable isPulling={isPulling} setIsPulling={setIsPulling} type={type} setType={setType} date={date} setDate={setDate} />
+        <div className="m-2">
+          <DatePicker
+            isPulling={isPulling}
+            setIsPulling={setIsPulling}
+            type={type}
+            setType={setType}
+            date={date}
+            setDate={setDate}
+          />
+          <MainTable
+            isPulling={isPulling}
+            setIsPulling={setIsPulling}
+            type={type}
+            setType={setType}
+            date={date}
+            setDate={setDate}
+          />
+        </div>
       </div>
       <Footer />
     </main>

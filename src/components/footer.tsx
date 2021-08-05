@@ -5,8 +5,8 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 export default function Footer(): JSX.Element {
   return (
     <>
-      <div className="columns is-desktop is-multiline is-centered is-vcentered mt-5 mt-5">
-        <div className="column is-one-third has-text-centered is-size-5">
+      <div className="is-flex is-flex-wrap-wrap is-flex-directino-row is-justify-content-center">
+        <div className="is-flex if-flex-wrap-wrap is-flex-direction-column is-align-items-center has-text-centered is-size-5">
           <h4 className="has-text-weight-bold">Project by K. Wajakajornrit</h4>
           <span className="icon-text">
             <h4 className="has-text-weight-bold">Contribute with us on</h4>

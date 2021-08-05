@@ -59,13 +59,13 @@ export default function DatePicker({
     });
   }, [onChangeSelection]);
   return (
-    <div className="columns is-desktop is-centered is-vcentered">
-      <div className="column is-one-third">
-        <div className="columns is-desktop is-centered is-vcentered">
-          <div className="column is-one-third">
+    <div className="columns is-mobile is-centered is-vcentered">
+      <div className="column is-one-third-desktop is-half-mobile is-centered is-vcentered">
+        <div className="is-flex is-flex-wrap-wrap is-flex-direction-row is-align-items-center is-justify-content-center">
+          <div className="mr-2">
             <span className="is-size-4 has-text-weight-bold">Type:</span>
           </div>
-          <div className="column is-two-thirds">
+          <div className="ml-2">
             <div className="select is-medium" style={{ width: "100%" }}>
               <select
                 ref={typeRef}
@@ -81,12 +81,12 @@ export default function DatePicker({
           </div>
         </div>
       </div>
-      <div className="column is-one-third is-centered is-vcentered">
-        <div className="columns is-desktop is-centered is-vcentered">
-          <div className="column is-one-third">
+      <div className="column is-one-third-desktop is-half-mobile is-centered is-vcentered">
+        <div className="is-flex is-flex-wrap-wrap is-flex-direction-row is-align-items-center is-justify-content-center">
+          <div className="mr-2">
             <label className="is-size-4 has-text-weight-bold">Data asof:</label>
           </div>
-          <div className="column is-two-thirds">
+          <div className="ml-2">
             <input
               ref={dateRef}
               className="input is-medium has-text-centered has-text-weight-bold"
