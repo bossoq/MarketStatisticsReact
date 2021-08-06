@@ -60,7 +60,7 @@ export default function DatePicker({
   }, [onChangeSelection]);
   return (
     <div className="columns is-mobile is-centered is-vcentered">
-      <div className="column is-one-third-desktop is-half-mobile is-centered is-vcentered">
+      <div className="column is-half is-centered is-vcentered">
         <div className="is-flex is-flex-wrap-wrap is-flex-direction-row is-align-items-center is-justify-content-center">
           <div className="mr-2">
             <span className="is-size-4 has-text-weight-bold">Type:</span>
@@ -81,7 +81,7 @@ export default function DatePicker({
           </div>
         </div>
       </div>
-      <div className="column is-one-third-desktop is-half-mobile is-centered is-vcentered">
+      <div className="column is-half is-centered is-vcentered">
         <div className="is-flex is-flex-wrap-wrap is-flex-direction-row is-align-items-center is-justify-content-center">
           <div className="mr-2">
             <label className="is-size-4 has-text-weight-bold">Data asof:</label>
