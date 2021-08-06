@@ -62,10 +62,10 @@ export default function DatePicker({
     <div className="columns is-mobile is-centered is-vcentered">
       <div className="column is-half is-centered is-vcentered">
         <div className="is-flex is-flex-wrap-wrap is-flex-direction-row is-align-items-center is-justify-content-center">
-          <div className="mr-2">
+          <div className="ml-1 mr-1">
             <span className="is-size-4 has-text-weight-bold">Type:</span>
           </div>
-          <div className="ml-2">
+          <div className="ml-1 mr-1">
             <div className="select is-medium" style={{ width: "100%" }}>
               <select
                 ref={typeRef}
@@ -83,10 +83,10 @@ export default function DatePicker({
       </div>
       <div className="column is-half is-centered is-vcentered">
         <div className="is-flex is-flex-wrap-wrap is-flex-direction-row is-align-items-center is-justify-content-center">
-          <div className="mr-2">
+          <div className="ml-1 mr-1">
             <label className="is-size-4 has-text-weight-bold">Data asof:</label>
           </div>
-          <div className="ml-2">
+          <div className="ml-1 mr-1">
             <input
               ref={dateRef}
               className="input is-medium has-text-centered has-text-weight-bold"
