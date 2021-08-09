@@ -39,7 +39,7 @@ const selectMissing = (type: string): number => {
   }
 };
 
-const defaultInterval: number[] = [1, 3, 5, 10, 17, 19, 20, 25, 30, 35, 40, 42];
+const defaultInterval: number[] = [1, 3, 5, 10, 17, 19, 20, 25, 30, 35, 40, 42, 46];
 export const monthString: string[] = [
   "Jan",
   "Feb",
