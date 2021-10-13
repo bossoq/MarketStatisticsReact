@@ -1,12 +1,12 @@
-import { useState } from "react";
-import DatePicker from "./components/datepicker";
-import MainTable from "./components/table";
-import Footer from "./components/footer";
+import { useState } from 'react'
+import DatePicker from './components/datepicker'
+import MainTable from './components/table'
+import Footer from './components/footer'
 
 export default function App(): JSX.Element {
-  const [isPulling, setIsPulling] = useState<boolean>(false);
-  const [type, setType] = useState<string>("yearly");
-  const [date, setDate] = useState<Date>(new Date());
+  const [isPulling, setIsPulling] = useState<boolean>(false)
+  const [type, setType] = useState<string>('yearly')
+  const [date, setDate] = useState<Date>(new Date())
   return (
     <main>
       <div className="container is-fullhd">
@@ -36,5 +36,5 @@ export default function App(): JSX.Element {
       </div>
       <Footer />
     </main>
-  );
+  )
 }

@@ -1,6 +1,6 @@
 /// <reference lib="dom" />
-import { useCallback, useEffect, useRef, SetStateAction, Dispatch } from "react";
-import { allBondDate } from "../lib/calcreturn";
+import { useCallback, useEffect, useRef, SetStateAction, Dispatch } from 'react'
+import { allBondDate } from '../lib/calcreturn'
 
 export default function DatePicker({
   isPulling,
@@ -8,56 +8,57 @@ export default function DatePicker({
   type,
   setType,
   date,
-  setDate
+  setDate,
 }: {
-  isPulling: boolean;
-  setIsPulling: Dispatch<SetStateAction<boolean>>;
-  type: string;
-  setType: Dispatch<SetStateAction<string>>;
-  date: Date;
-  setDate: Dispatch<SetStateAction<Date>>;
+  isPulling: boolean
+  setIsPulling: Dispatch<SetStateAction<boolean>>
+  type: string
+  setType: Dispatch<SetStateAction<string>>
+  date: Date
+  setDate: Dispatch<SetStateAction<Date>>
 }): JSX.Element {
-  const typeRef = useRef<HTMLSelectElement>(null);
-  const dateRef = useRef<HTMLInputElement>(null);
+  const typeRef = useRef<HTMLSelectElement>(null)
+  const dateRef = useRef<HTMLInputElement>(null)
   const onChangeSelection = useCallback(() => {
     if (type !== typeRef.current?.value) {
-      setType(typeRef.current?.value.toLowerCase() || "yearly")
+      setType(typeRef.current?.value.toLowerCase() || 'yearly')
     }
-    if (date !== new Date(dateRef.current?.value || "")) {
-      setDate(new Date(dateRef.current?.value || ""))
+    if (date !== new Date(dateRef.current?.value || '')) {
+      setDate(new Date(dateRef.current?.value || ''))
     }
-    setIsPulling(true);
-  }, []);
+    setIsPulling(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   useEffect(() => {
     allBondDate().then((allDate: string[]) => {
-      const startDate: Date = new Date(allDate.slice(0, 1)[0]);
-      const endDate: Date = new Date(allDate.slice(-1)[0]);
-      let dateRange: Date[] = [];
+      const startDate: Date = new Date(allDate.slice(0, 1)[0])
+      const endDate: Date = new Date(allDate.slice(-1)[0])
+      let dateRange: Date[] = []
       for (
         let unix = startDate.getTime();
         unix <= endDate.getTime();
         unix += 86400000
       ) {
-        const thisDay: Date = new Date(unix);
-        const day = thisDay.getDate();
-        const month = thisDay.getMonth();
-        const year = thisDay.getFullYear();
+        const thisDay: Date = new Date(unix)
+        const day = thisDay.getDate()
+        const month = thisDay.getMonth()
+        const year = thisDay.getFullYear()
         if (
           !allDate.includes(
-            `${year}-${String(month + 1).padStart(2, "0")}-${String(
+            `${year}-${String(month + 1).padStart(2, '0')}-${String(
               day
-            ).padStart(2, "0")}`
+            ).padStart(2, '0')}`
           )
         ) {
-          dateRange.push(thisDay);
+          dateRange.push(thisDay)
         }
       }
-      const startEnd: Date[] = [startDate, endDate];
-      sessionStorage.setItem("startEnd", JSON.stringify(startEnd));
-      sessionStorage.setItem("allDateList", JSON.stringify(dateRange));
-      dateRef.current?.addEventListener("change", onChangeSelection);
-    });
-  }, [onChangeSelection]);
+      const startEnd: Date[] = [startDate, endDate]
+      sessionStorage.setItem('startEnd', JSON.stringify(startEnd))
+      sessionStorage.setItem('allDateList', JSON.stringify(dateRange))
+      dateRef.current?.addEventListener('change', onChangeSelection)
+    })
+  }, [onChangeSelection])
   return (
     <div className="columns is-mobile is-centered is-vcentered">
       <div className="column is-half is-centered is-vcentered">
@@ -66,12 +67,12 @@ export default function DatePicker({
             <span className="is-size-4 has-text-weight-bold">Type:</span>
           </div>
           <div className="ml-1 mr-1">
-            <div className="select is-medium" style={{ width: "100%" }}>
+            <div className="select is-medium" style={{ width: '100%' }}>
               <select
                 ref={typeRef}
                 name="indicator"
                 className="has-text-weight-bold"
-                style={{ width: "100%" }}
+                style={{ width: '100%' }}
                 onChange={onChangeSelection}
               >
                 <option>Yearly</option>
@@ -99,5 +100,5 @@ export default function DatePicker({
         </div>
       </div>
     </div>
-  );
+  )
 }
