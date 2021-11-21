@@ -1,5 +1,12 @@
 /// <reference lib="dom" />
-import { useCallback, useEffect, useRef, SetStateAction, Dispatch } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  SetStateAction,
+  Dispatch,
+  ReactElement,
+} from 'react'
 import { allBondDate } from '../lib/calcreturn'
 
 export default function DatePicker({
@@ -16,7 +23,7 @@ export default function DatePicker({
   setType: Dispatch<SetStateAction<string>>
   date: Date
   setDate: Dispatch<SetStateAction<Date>>
-}): JSX.Element {
+}): ReactElement {
   const typeRef = useRef<HTMLSelectElement>(null)
   const dateRef = useRef<HTMLInputElement>(null)
   const onChangeSelection = useCallback(() => {

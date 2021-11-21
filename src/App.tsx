@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState, ReactElement } from 'react'
 import DatePicker from './components/datepicker'
 import MainTable from './components/table'
 import Footer from './components/footer'
 
-export default function App(): JSX.Element {
+export default function App(): ReactElement {
   const [isPulling, setIsPulling] = useState<boolean>(false)
   const [type, setType] = useState<string>('yearly')
   const [date, setDate] = useState<Date>(new Date())

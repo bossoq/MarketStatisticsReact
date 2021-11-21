@@ -1,4 +1,10 @@
-import { useState, useEffect, SetStateAction, Dispatch } from 'react'
+import {
+  useState,
+  useEffect,
+  SetStateAction,
+  Dispatch,
+  ReactElement,
+} from 'react'
 import { allBondDate, allReturnsDefault, monthString } from '../lib/calcreturn'
 
 export default function MainTable({
@@ -15,7 +21,7 @@ export default function MainTable({
   setType: Dispatch<SetStateAction<string>>
   date: Date
   setDate: Dispatch<SetStateAction<Date>>
-}): JSX.Element {
+}): ReactElement {
   const [isFirstLoad, setIsFirstLoad] = useState<boolean>(true)
   const [tableData, setTableData] = useState<{ [k: string]: number }[]>([])
   const [monthYear, setMonthYear] = useState<string>('')

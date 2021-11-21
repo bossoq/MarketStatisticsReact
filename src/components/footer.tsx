@@ -1,8 +1,8 @@
-import React from 'react'
+import { ReactElement } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-export default function Footer(): JSX.Element {
+export default function Footer(): ReactElement {
   return (
     <>
       <div className="is-flex is-flex-wrap-wrap is-flex-directino-row is-justify-content-center">
