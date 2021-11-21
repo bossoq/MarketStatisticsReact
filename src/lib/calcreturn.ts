@@ -62,9 +62,9 @@ const monthlyMissing = 1
 
 const averageMktReturns = (
   query: QueryAvgMktReturns,
-  allReturnObjSend: { [k: string]: number }[],
+  allReturnObjSend: Record<string, number>[],
   allSETRecordsObj: SETReturn[]
-): { [k: string]: number } => {
+): Record<string, number> => {
   const lastSETRecordsObj: SETReturn = allSETRecordsObj.find(
     (records) => records.month === query.month && records.year === query.year
   ) || { id: 0 }
@@ -72,7 +72,7 @@ const averageMktReturns = (
   const missingValue = selectMissing(query.indicator)
   const maxInterval = Math.min(periodId - missingValue, query.interval * 12)
   const offset = Math.max(periodId - query.interval * 12, missingValue)
-  const allReturnObj: { [k: string]: number }[] = allReturnObjSend.slice(
+  const allReturnObj: Record<string, number>[] = allReturnObjSend.slice(
     offset,
     periodId
   )
@@ -157,7 +157,7 @@ const getLastAvailable = async (
 
 export const allReturnsDefault = async (
   query: QueryAllReturnsDefault
-): Promise<{ [k: string]: number }> => {
+): Promise<Record<string, number>> => {
   const lastReturnAvailable: LastAvailable = await getLastAvailable({
     type: query.indicator,
   })
@@ -196,7 +196,7 @@ export const allReturnsDefault = async (
     .from<SETReturn>('SET_Return')
     .select(indicator)
   const allReturnObj: [] = Object.assign(data || [])
-  const ret: { [k: string]: number }[] = []
+  const ret: Record<string, number>[] = []
   for (const interval of defaultInterval) {
     const querySend = Object.assign(queryPrep, { interval: interval })
     let mktReturns = averageMktReturns(
@@ -211,7 +211,7 @@ export const allReturnsDefault = async (
     mktReturns = { ...mktReturns, ...bondYieldSingle }
     ret.push(mktReturns)
   }
-  const fullRet: { [k: string]: any } = {
+  const fullRet: Record<string, any> = {
     return: ret,
     monthYear: `${endMonth}-${endYear}`,
   }

@@ -67,12 +67,12 @@ export default function DatePicker({
             <span className="is-size-4 has-text-weight-bold">Type:</span>
           </div>
           <div className="ml-1 mr-1">
-            <div className="select is-medium" style={{ width: '100%' }}>
+            <div className="select is-medium datepicker">
               <select
+                title="calculation type"
                 ref={typeRef}
                 name="indicator"
-                className="has-text-weight-bold"
-                style={{ width: '100%' }}
+                className="has-text-weight-bold datepicker"
                 onChange={onChangeSelection}
               >
                 <option>Yearly</option>
@@ -89,6 +89,7 @@ export default function DatePicker({
           </div>
           <div className="ml-1 mr-1">
             <input
+              title="data asof"
               ref={dateRef}
               className="input is-medium has-text-centered has-text-weight-bold"
               type="text"

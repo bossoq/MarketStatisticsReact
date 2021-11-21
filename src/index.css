@@ -59,3 +59,7 @@ body {
   /* margin: 0; */
   scroll-behavior: smooth;
 }
+
+.datepicker {
+  width: 100%;
+}
