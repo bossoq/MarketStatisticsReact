@@ -34,7 +34,7 @@
     <a href="https://github.com/bossoq/MarketStatisticsReact"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://market-statistics.vercel.app">View Demo</a>
+    <a href="https://mktreturn.bossoq.live">View Demo</a>
     ·
     <a href="https://github.com/bossoq/MarketStatisticsReact/issues">Report Bug</a>
     ·
